@@ -10,6 +10,11 @@ public class MyWebController {
 	@Autowired
 	private BusinessService businessService;
 	
+	public MyWebController(BusinessService businessService) {
+		super();
+		this.businessService = businessService;
+	}
+	
 	public long returnValueFromBusinessService() {
 		return businessService.calculateSum();
 	}
