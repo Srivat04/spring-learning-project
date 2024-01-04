@@ -2,17 +2,24 @@ package com.in28minutes.spring.learnspringframework;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
 import com.in28minutes.spring.learnspringframework.game.GameRunner;
-import com.in28minutes.spring.learnspringframework.game.PacmanGame;
 
 @SpringBootApplication
+@ComponentScan("com.in28minutes.spring.learnspringframework")  //automatically added when SpringBootApplication is annotated
+//@ComponentScan({"package1, package2"})
 public class LearnSpringFrameworkApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(LearnSpringFrameworkApplication.class, args);
-		PacmanGame game = new PacmanGame();
-		GameRunner runner = new GameRunner(game);
+		
+		ConfigurableApplicationContext context = 
+				SpringApplication.run(LearnSpringFrameworkApplication.class, args);
+//		GamingConsole game = new PacmanGame();
+//		GameRunner runner = new GameRunner(game);
+		
+		GameRunner runner = context.getBean(GameRunner.class);
 		runner.run();
 		
 	}
