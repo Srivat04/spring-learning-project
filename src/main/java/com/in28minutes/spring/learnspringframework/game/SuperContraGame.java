@@ -1,22 +1,22 @@
 package com.in28minutes.spring.learnspringframework.game;
 
-public class SuperContraGame {
+public class SuperContraGame implements GamingConsole{
 	
 	public void up() {
-		System.out.println("jump");
+		System.out.println("SuperContraGame up");
 	}
 	
 	public void down() {
-		System.out.println("down into the hole");
+		System.out.println("SuperContraGame down");
 	}
 	
 	public void left() {
-		System.out.println("stop");
+		System.out.println("SuperContraGame left");
 	}
 	
 	
 	public void right() {
-		System.out.println("accelerate");
+		System.out.println("SuperContraGame right");
 	}
 	
 }
